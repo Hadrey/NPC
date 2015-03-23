@@ -1,0 +1,12 @@
+name: FunGold
+author: Aoot
+main: net.mine4fun.FunGold.Main
+version: 0.1
+commands:
+
+  fungold:
+    description: Serwerowa waluta - FunGold.
+    aliases: [fg]
+  fungoldadmin:
+    description: Serwerowa waluta - FunGold.
+    aliases: [fga]
