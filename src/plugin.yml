@@ -4,6 +4,6 @@ main: net.mineforfun.net.npc.Main
 version: 0.1
 commands:
 
-  npcd:
+  npcg:
     description: NPC
     aliases: [n]
