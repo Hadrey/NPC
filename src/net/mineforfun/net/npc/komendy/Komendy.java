@@ -1,5 +1,6 @@
 package net.mineforfun.net.npc.komendy;
 
+import net.mineforfun.net.npc.gui.Gui;
 import net.mineforfun.net.npc.gui.GuiManager;
 
 import org.bukkit.Bukkit;
@@ -18,10 +19,12 @@ public class Komendy implements CommandExecutor {
 				return true;
 			} else {
 				if (args[0].equalsIgnoreCase("create")) {
-					GuiManager.getManager().createGui(args[1], Integer.parseInt(args[2]));
+					GuiManager.getManager().createGui(args[1], "test", Integer.parseInt(args[2]));
 					sender.sendMessage("Utworzono gui o nazwie: " + args[1] + ", i slotach: " + args[2]);
 				} else if (args[0].equalsIgnoreCase("open")) {
-					Inventory inv = GuiManager.getManager().getInv(args[1]);
+					Gui file = GuiManager.getManager().getGui(args[1]);
+					sender.sendMessage("file: " + file.getNazwaPliku().toString());
+					Inventory inv = GuiManager.getManager().getInv(file.getName());
 					Bukkit.getPlayer(sender.getName().toString()).openInventory(inv);
 					sender.sendMessage("Otworzyles menu o nazwie: " + args[1]);
 				}

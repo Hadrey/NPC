@@ -11,7 +11,7 @@ public class FileManager {
 
 	private static File df = Main.getInst().getDataFolder();
 	private static File cfg = new File(df, "config.yml");
-	private static File user = new File(df, "menu");
+	private static File menu = new File(df, "menu");
 
 	private static YamlConfiguration cfgYml;
 
@@ -22,9 +22,9 @@ public class FileManager {
 		}
 	}
 
-	public static void checkUserFolder() {
-		if (!user.exists()) {
-			user.mkdir();
+	public static void checkMenuFolder() {
+		if (!menu.exists()) {
+			menu.mkdir();
 		}
 	}
 
@@ -58,20 +58,18 @@ public class FileManager {
 		cfgYml = YamlConfiguration.loadConfiguration(cfg);
 	}
 	
-	
-	
-	public static File getPlayerFile(String file) {
+	public static File getMenuFile(String file) {
 		return new File(Main.getInst().getDataFolder() + File.separator + "menu" + File.separator
-				+ file + ".yml");
+				+ file);
 	}
 
-	public static YamlConfiguration getPlayerYamlFile(String file) {
-		File pFile = FileManager.getPlayerFile(file);
+	public static YamlConfiguration getMenuYamlFile(String file) {
+		File pFile = FileManager.getMenuFile(file);
 
 		return YamlConfiguration.loadConfiguration(pFile);
 	}
 
-	public static void savePlayerFile(File pFile, YamlConfiguration pYaml) {
+	public static void saveMenuFile(File pFile, YamlConfiguration pYaml) {
 		try {
 			pYaml.save(pFile);
 		} catch (IOException e) {

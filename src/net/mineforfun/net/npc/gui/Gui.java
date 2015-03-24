@@ -11,6 +11,7 @@ public class Gui implements Listener {
 	private Inventory inv;
 	
 	private String name;
+	private String nazwaPliku;
 	
 	private int sloty;
 	
@@ -22,7 +23,8 @@ public class Gui implements Listener {
 	public static ArrayList<Gui> guiObject = new ArrayList<Gui>();
 	public static ArrayList<Inventory> invOb = new ArrayList<Inventory>();
 	
-	public Gui(String name, Integer sloty){
+	public Gui(String nazwaPliku, String name, Integer sloty){
+		this.nazwaPliku = nazwaPliku;
 		this.name = name;
 		this.sloty = sloty;
 		this.inv = Bukkit.createInventory(null, sloty, name);
@@ -53,6 +55,14 @@ public class Gui implements Listener {
 	
 	public void setSloty(Integer sloty){
 		this.sloty = sloty;
+	}
+	
+	public String getNazwaPliku(){
+		return nazwaPliku;
+	}
+	
+	public void setNazwaPliku(String nazwaPliku){
+		this.nazwaPliku = nazwaPliku;
 	}
 	
 }

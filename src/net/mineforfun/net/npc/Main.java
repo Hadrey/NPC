@@ -1,7 +1,11 @@
 package net.mineforfun.net.npc;
 
+import net.mineforfun.net.npc.Sluchacze.Listeners;
+import net.mineforfun.net.npc.file.FileManager;
+import net.mineforfun.net.npc.gui.GuiManager;
 import net.mineforfun.net.npc.komendy.Komendy;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -11,6 +15,14 @@ public class Main extends JavaPlugin {
 	public void onEnable(){
 		instance = this;
 		getCommand("npcd").setExecutor(new Komendy());
+		
+		Bukkit.getPluginManager().registerEvents(new Listeners(), this);
+		
+		FileManager.checkDataFolder();
+		FileManager.checkMenuFolder();
+		FileManager.checkCfg();
+		
+		GuiManager.getManager().loadGui();
 	}
 	
 	public static Main getInst(){
