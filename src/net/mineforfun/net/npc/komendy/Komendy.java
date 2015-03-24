@@ -34,7 +34,6 @@ public class Komendy implements CommandExecutor {
 						Listeners.inv = GuiManager.getManager().getInv(Listeners.file.getName());
 						Bukkit.getPlayer(sender.getName().toString()).openInventory(Listeners.inv);
 						sender.sendMessage("Otworzyles menu o nazwie: " + args[1]);
-						
 					} else if (args[0].equalsIgnoreCase("lista")) {
 						sender.sendMessage("Test: " + Gui.itemStackOb.toString());
 					} else if (args[0].equalsIgnoreCase("reload")) {
