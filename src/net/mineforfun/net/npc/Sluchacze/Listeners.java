@@ -15,8 +15,8 @@ import org.bukkit.inventory.ItemStack;
 
 public class Listeners implements Listener {
 
-	Gui file;
-	Inventory inv;
+	public static Gui file;
+	public static Inventory inv;
 
 	@EventHandler
 	public void npcInteract(NPCRightClickEvent e) {
@@ -47,11 +47,6 @@ public class Listeners implements Listener {
 		}
 
 		if (i.getName().equals(inv.getName())) {
-			/*
-			 * if (e.getCurrentItem().getType() == Material.WOOD) {
-			 * e.setCancelled(true); Player p = (Player) e.getWhoClicked();
-			 * p.sendMessage("Dziala!"); }
-			 */
 			if (GuiManager.getManager().getInv(inv.getName()).contains(e.getCurrentItem())) {
 				Player p = (Player) e.getWhoClicked();
 				ItemStack ia = e.getCurrentItem();
@@ -71,32 +66,10 @@ public class Listeners implements Listener {
 						p.closeInventory();
 					}
 					e.setCancelled(true);
-					// p.sendMessage("jest");
 				} else {
 					p.sendMessage("nie ma");
 				}
 			}
 		}
-		/*
-		 * if(e.getWhoClicked() instanceof Player){ Player p = (Player)
-		 * e.getWhoClicked(); e.setCancelled(true);
-		 * if(Gui.itemStackOb.contains(e.getCurrentItem())){
-		 * 
-		 * e.setCancelled(true); p.sendMessage("Test"); }else{
-		 * p.sendMessage("nie"); }
-		 */
-		/*
-		 * if(e.getCurrentItem().getItemMeta().getDisplayName().equals(rasa1.
-		 * getItemMeta().getDisplayName())){ e.setCancelled(true);
-		 * p.sendMessage(ChatColor.GOLD + "Rasa 1!"); p.closeInventory(); }else
-		 * if(e.getCurrentItem().getItemMeta().getDisplayName().equals(rasa2.
-		 * getItemMeta().getDisplayName())){ e.setCancelled(true);
-		 * p.sendMessage(ChatColor.GOLD + "Rasa 2!"); p.closeInventory(); }else
-		 * if(e.getCurrentItem().getItemMeta().getDisplayName().equals(rasa3.
-		 * getItemMeta().getDisplayName())){ e.setCancelled(true);
-		 * p.sendMessage(ChatColor.GOLD + "Rasa 3!"); p.closeInventory(); }else{
-		 * e.setCancelled(true); // p.closeInventory(); // p.openInventory(inv);
-		 * }
-		 */
 	}
 }

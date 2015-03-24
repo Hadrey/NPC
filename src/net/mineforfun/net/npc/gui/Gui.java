@@ -33,17 +33,9 @@ public class Gui implements Listener {
 		this.name = name;
 		this.sloty = sloty;
 		this.inv = Bukkit.createInventory(null, sloty, name);
+		
+		
 		invOb.add(inv);
-		
-		
-/*		inv = Bukkit.createInventory(null, 9, name);
-		for(int i = 0; i == sloty; i++){
-			ItemStack is = new ItemStack(Material.WOOD, 1);
-			ItemMeta im = is.getItemMeta();
-			
-			is.setItemMeta(im);
-			inv.setItem(i, is);
-		}*/
 		guiObject.add(this);
 	}
 	public String getName(){
