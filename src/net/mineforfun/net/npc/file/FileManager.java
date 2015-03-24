@@ -38,6 +38,7 @@ public class FileManager {
 			}
 		}
 		cfgYml = YamlConfiguration.loadConfiguration(cfg);
+		
 	}
 
 	// save
