@@ -8,5 +8,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Arati/Desktop/Java/jar/Citizens.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Arati/Desktop/Java/jar/Vault.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

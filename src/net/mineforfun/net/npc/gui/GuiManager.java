@@ -64,12 +64,20 @@ public class GuiManager {
 					lore = FileManager.getMenuYamlFile(pliki.getName()).getStringList("icon." + keys + ".LORE");
 					int iconSlot = FileManager.getMenuYamlFile(pliki.getName()).getInt("icon." + keys + ".POSITION");
 					int iconMaterial = FileManager.getMenuYamlFile(pliki.getName()).getInt("icon." + keys + ".ID");
+
 					iconName = "§r" + iconName;
-					
-					
 
 					ItemStack is = new ItemStack(Material.WOOD, 1);
 					is.setTypeId(iconMaterial);
+					if (FileManager.getMenuYamlFile(pliki.getName()).contains("icon." + keys + ".DATA")) {
+						//int iconData = FileManager.getMenuYamlFile(pliki.getName()).getInt("icon." + keys + ".DATA");
+						//MaterialData materialData = is.getData();
+						is.getData().setData((byte) 1);
+						//materialData.setData((byte) 1);
+						//System.out.println(materialData);
+						//is.setData(materialData);
+						
+					}
 					ItemMeta im = is.getItemMeta();
 
 					im.setDisplayName(iconName);
@@ -81,11 +89,12 @@ public class GuiManager {
 						is.setAmount(FileManager.getMenuYamlFile(pliki.getName()).getInt("icon." + keys + ".AMOUNT"));
 					}
 					
-					
+					if (is.getData().getData() == 1) {
+						System.out.println(is);
+					}
 
 					inv.setItem(iconSlot, is);
-					
-					
+
 					Gui.itemStackOb.put(is, inv);
 					Gui.isname.put(is, keys);
 				}
